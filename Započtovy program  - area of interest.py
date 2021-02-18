@@ -204,10 +204,19 @@ class Morse:
                 break
 print("  Inicializuj triedu Morse s udajmi \n o použitej casovej jednotke v \n sekundach na  vysielanie a kamerovym \n portom, ktory pouzijes \n")
 
-frekvencia=float(input(" Zadaj casovu jednotku svetelneho signalu nie nizsiu ako 0.3 sekund: "))
+while True:
+    try:
+        frekvencia=float(input(" Zadaj casovu jednotku svetelneho signalu nie nizsiu ako 0.3 sekund: "))
+        break
+    except ValueError:
+        print("Nespravne zadany udaj, skus znovu")
 
 print(" \n Pre vstavanu webkameru zadaj 0")
-
-port = int(input(" Zadaj kamerovy port: "))
+while True:
+    try:
+        port = int(input(" Zadaj kamerovy port: "))
+        break
+    except ValueError:
+        print("Nespravne zadany udaj, skus znovu")
 video = Morse(frekvencia,port)
 video.load_video()
