@@ -11,4 +11,4 @@ PRAVIDLA VYSIELANIA MORZEOVEJ ABECEDY:
 5. Medzera medzi slovami je 7 časových jednotiek
 
 ABECEDA:
-[Test Image 4](https://miro.medium.com/max/1163/0*dSma6M7d5vatzPyH.jpg)
+[Klikni tu](https://miro.medium.com/max/1163/0*dSma6M7d5vatzPyH.jpg)
