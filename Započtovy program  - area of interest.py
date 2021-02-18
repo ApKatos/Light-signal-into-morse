@@ -1,14 +1,9 @@
 _author_ = 'Patricia' 
-_author_ = 'Patricia'
+
 import cv2 as cv2
 import time
 import numpy as np
-#from datetime import datetime
-#import keyboard
 
-"""
-img.dtype is very important while debugging because a large number of errors in OpenCV-Python code are caused by invalid datatype.
-"""
 # Loop until the end of the video
 class Morse:
     def __init__(self, unitOfTime=0.3, camera_port = 0):
@@ -16,6 +11,7 @@ class Morse:
         camera port used for the light input with each frame.
         Inicializator objektu s nacitanou frekvenciou vysielania svetelneho signalu a premenna o kamerovom porte,ktory
         bude program pouzivat."""
+
         self.TIME_UNIT = unitOfTime         #dot 1 unit, dash 3 units
         self.ratio = 3
         self.cap = cv2.VideoCapture(camera_port)
@@ -46,6 +42,7 @@ class Morse:
                 frame[45:75, 10:120, 1] = 255
                 cv2.putText(frame, "Aktivne", (20, 60), cv2.FONT_HERSHEY_COMPLEX, 0.55,
                             (0, 0, 0))                      # Adding text for user to know, whether light signaling has been activated
+
                 if self.brightness > self.threshold and self.lights_on == False:
                     time_passed = self.time_watch()
                     if time_passed > self.TIME_UNIT*(5.5):                  # The space between words is 7 units of time
@@ -59,13 +56,14 @@ class Morse:
                         pass   # The space between perts of the same letter is one unit of time
 
                     self.lights_on = True
+
                 elif self.brightness < self.threshold and self.lights_on == True:
                     time_passed = self.time_watch()
                     sign_from_time = self.into_morse(time_passed)
                     self.list_of_intervals.append(sign_from_time)
                     self.lights_on = False
                 else:  # otherwise time-lasting continues
-                    pass                      # Condit
+                    pass
             else:
                 frame[45:75, 10:120, 2] = 255
                 cv2.putText(frame, "Neaktivne", (20, 60), cv2.FONT_HERSHEY_COMPLEX, 0.55,
